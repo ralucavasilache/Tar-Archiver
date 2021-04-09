@@ -1,0 +1,66 @@
+
+NUME: Vasilache Raluca
+GRUPA: 314 CA
+
+
+			Tema #3: Fisiere, Stringuri si Structuri
+
+
+Proiectul contine:
+
+- codurile sursa pentru cele 4 task-uri ale probemei
+- un fisier Makefile prin care:
+
+	-se compileaza codul sursa in executabil pentru fiecare problema in parte
+	-se creeaza o arhiva in conformitate cu cerintele precizate
+	-se sterg toate executabilele precizate
+
+- un fisier README
+
+
+Descriere solutii probleme:
+
+
+	TASK1 - CREATE
+
+	Se citesc datele linie cu linie din fisierul files.txt. Parsam fiecare
+linie si, cu ajutorul unui contor, numaram cuvintele. In functie de numarul
+cuvantului decidem ce campuri din header se completeaza: 
+	-Daca se extrage primul cuvant se calculeaza permisiunile, numarand
+aparitia literelor r, w si x si se completeza campul mode. 
+	-Daca contorul are valoarea 3 se completeaza campul uname cu numele
+userului. Acest nume este necesar si pentru completarea campurilor gid si uid,
+astfel ca se deschide fisierul usermap.txt si se citesc, de pe fiecare linie
+numele userului, gid-ul si uid-ul corespunzatoare. Daca cele doua username uri
+sunt identice, cautarea se opreste si se completeaza uid si gid. 
+	-Daca contorul este 4, se completeaza numele grupului. Daca contorul este
+5, se converteste in octal numarul gasit si se completeaza size. 
+	-Daca contorul este 6 se apeleaza functia care transforma data in numere
+intregi si se pun rezultatele, anul, luna si ziua, in structura time_. 
+	-Daca contorul este 7, se apeleaza functia timetoint si se retine timpul
+ca numere intregi, ore, minute si secunde, care se pun in structura time_.
+Se calculeaza ulterior diferenta de la 1 ianuarie 1900 pana la data ultimei modificari. 
+	-Daca contorul este 9, se completeaza campul name. Toate datele extrase
+se pun apoi in charptr. 
+	-Ultimul cand completat este chksum care se obtine din suma tuturor octetilor
+din header. Se deschide apoi fisierul cu numele citit din directorul dat si se
+copiaza octetii din el in uniune. Se completeaza cu NUULL pana la urmatorul multiplu de
+512 si dupa ce sunt arhivate toate fisierele se adauga un bloc de 512 NULL pentru
+a marca finalul arhivei.
+
+TASK2 – LIST
+
+	Se extract primii 100 de bytes din arhiva care reprezinta numele primului
+fisier si se afiseaza pe ecran. Se muta cursorul pe pozitia corespunzatoare campului
+size si se extrage dimensiunea fisierului, ca sa stim cati octeti trebuie sariti pana
+la pozitia corespunzatoare header-ului pentru urmatorul fisier. Se muta cursorul pe
+pozitia cautata si pasii anteriori se repeta pana cand se termina fisierele.
+
+TASK3 – EXTRACT
+
+	Se extrag numele din arhiva si se compara cu numele fisierului introdus de
+la tastatura, ca sa testam daca acesta exista. Se muta cursorul pe pozitia corespunzatoare
+campului size si se extrage dimensiunea fisierului, ca sa stim pozitia de pe care incep
+octetii din fisier si cati trebuie cititi si introdusi in fisierul extracted_name care se
+creeaza concatenand numele la sirul "extracted_". La final se muta cursorul pe pozitia
+corespunzatoare urmatorului header si se repeta pasii anteriori.
